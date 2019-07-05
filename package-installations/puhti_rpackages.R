@@ -842,14 +842,15 @@ install_version("VineCopula", version = "2.1.8", dependencies = FALSE)
 
 # CRAN: Packages that need units / udunits2 ####
 
+# udunits2 installation may need configure.args (change path as needed)
+
 # install_version("udunits2", version = "0.13", dependencies = FALSE, 
 #                configure.args='--with-udunits2-include=/home/jharriso/anaconda3/envs/puhtitest-env/include')
 
 # install_version("adegenet", version = "2.1.1", dependencies = FALSE) # ‘shiny’, ‘seqinr’, ‘spdep’
 # Depends: 	R (≥ 2.14), methods, ade4, Imports: 	utils, stats, grDevices, MASS, igraph, ape, shiny, ggplot2, seqinr, parallel, spdep, boot, reshape2, dplyr (≥ 0.4.1), vegan
-# needs udunits2-devel (libudunits2.so)
 
-# install_version("pegas", version = "0.11", dependencies = FALSE) # needs ape, adegenet
+# install_version("pegas", version = "0.11", dependencies = FALSE) # ape, adegenet
 # install_version("poppr", version = "2.8.3", dependencies = FALSE)
 # Depends: 	R (≥ 2.15.1), adegenet (≥ 2.0.0)
 # Imports: 	stats, graphics, grDevices, utils, vegan, ggplot2, phangorn, ape (≥ 3.1-1), igraph (≥ 1.0.0), methods, ade4, pegas, polysat, dplyr (≥ 0.4), rlang, boot, shiny, magrittr
@@ -860,24 +861,26 @@ install_version("VineCopula", version = "2.1.8", dependencies = FALSE)
 # install_version("rgl", version = "0.100.24", dependencies = FALSE)
 # Imports: 	graphics, grDevices, stats, utils, htmlwidgets, htmltools, knitr, jsonlite (≥ 0.9.20), 
 # shiny, magrittr, crosstalk, manipulateWidget (≥ 0.9.0)
-# install_version("longitudinalData", version = "2.4.1", dependencies = FALSE) # needs methods, clv, class, rgl, utils, misc3d
+# install_version("longitudinalData", version = "2.4.1", dependencies = FALSE) # methods, clv, class, rgl, utils, misc3d
 # install_version("tkrplot", version = "0.0-24", dependencies = FALSE)
-# install_version("misc3d", version = "0.8-4", dependencies = FALSE) # needs rgl, tkrplot, MASS
+# install_version("misc3d", version = "0.8-4", dependencies = FALSE) # rgl, tkrplot, MASS
 
 # TSclust needs wmtsa, which depends on various upstream packages
 # install_version("wmtsa", version = "2.0-3", dependencies = FALSE) # splus2R, ifultools, MASS
 # install_version("TSclust", version = "1.2.4", dependencies = FALSE) # wmtsa, pdc, cluster, locpol, KernSmooth, dtw, longitudinalData
 
 # CRAN: Packages that need GDAL and PROJ4 ####
-# This part is still unordered
+
+# This part is still unordered and needs completing
 # note that some here also need units!
 
-# install_version("rgdal", version = "1.4-4", dependencies = FALSE) # needs sp
-# install_version("units", version = "0.6-3", dependencies = FALSE) # needs Rcpp, udunits2
-# install_version("sf", version = "0.7-4", dependencies = FALSE) # needs classInt, DBI, magrittr, Rcpp, units
-# install_version("spdep", version = "1.1-2", dependencies = FALSE) # needs sp, spData, sf
+# install_version("rgdal", version = "1.4-4", dependencies = FALSE) # sp
+# install_version("units", version = "0.6-3", dependencies = FALSE) # Rcpp, udunits2
+# install_version("sf", version = "0.7-4", dependencies = FALSE) # classInt, DBI, magrittr, Rcpp, units
+# install_version("spdep", version = "1.1-2", dependencies = FALSE) # sp, spData, sf
 # also imports: deldir, boot (≥ 1.3-1), graphics, grDevices, utils, stats, Matrix, LearnBayes, MASS, coda, expm, gmodels, nlme
-# install_version("spatialreg", version = "1.1-3", dependencies = FALSE) # needs  	spdep, expm, coda, methods, MASS, boot, 
+
+# install_version("spatialreg", version = "1.1-3", dependencies = FALSE) # spdep, expm, coda, methods, MASS, boot, 
 # splines, LearnBayes, nlme, gmodels
 # install_version("hierfstat", version = "0.04-22", dependencies = FALSE) # needs gtools, ade4, adegenet
 # install_version("GWmodel", version = "2.1-1", dependencies = FALSE)
