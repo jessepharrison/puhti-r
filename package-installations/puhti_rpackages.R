@@ -994,10 +994,12 @@ install_version("VineCopula", version = "2.1.8", dependencies = FALSE)
 # Bioconductor packages already installed:
 # ‘BiocGenerics’, 'genefilter', ‘IRanges’, ‘S4Vectors’, ‘AnnotationDbi’, ‘annotate’, ‘Biobase’
 
-# Bioconductor packages that need zlib 
-
 BiocManager::install("affy")
-BiocManager::install("oligo")
+BiocManager::install("oligo") # in Conda, gives this error:
+
+# Error: package or namespace load failed for ‘affxparser’ in dyn.load(file, DLLpath = DLLpath, ...):
+# unable to load shared object '/home/jharriso/anaconda3/envs/puhtitest-env/lib/R/library/affxparser/libs/affxparser.so':
+# (However, seems to work outside my minimal conda-env, so let's see)
 
 # installing oligo also compiles the following Bioconductor packages:
 # 'affyio', 'BiocInstaller', 'BiocParallel', 'BiocVersion', 'Biostrings', 'DelayedArray',
