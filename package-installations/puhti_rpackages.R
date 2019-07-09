@@ -129,6 +129,7 @@ install_version("chron", version = "2.3-53", dependencies = FALSE)
 install_version("colorspace", version = "1.4-1", dependencies = FALSE)
 install_version("combinat", version = "0.0-8", dependencies = FALSE)
 install_version("corpcor", version = "1.6.9", dependencies = FALSE)
+install_version("corrplot", version = "0.84", dependencies = FALSE)
 install_version("data.table", version = "1.12.2", dependencies = FALSE)
 install_version("DBI", version = "1.0.0", dependencies = FALSE)
 install_version("deldir", version = "0.1-22", dependencies = FALSE)
@@ -136,6 +137,7 @@ install_version("DEoptimR", version = "1.0-8", dependencies = FALSE)
 install_version("Deriv", version = "3.8.5", dependencies = FALSE)
 install_version("deSolve", version = "1.23", dependencies = FALSE)
 install_version("dichromat", version = "2.0-0", dependencies = FALSE)
+install_version("diptest", version = "0.75-7", dependencies = FALSE)
 install_version("dotCall64", version = "1.0-0", dependencies = FALSE)
 install_version("dynamicTreeCut", version = "1.63-1", dependencies = FALSE)
 install_version("ellipse", version = "0.4.1", dependencies = FALSE)
@@ -189,6 +191,7 @@ install_version("matrixcalc", version = "1.0-3", dependencies = FALSE)
 install_version("matrixStats", version = "0.54.0", dependencies = FALSE)
 install_version("mclust", version = "5.4.4", dependencies = FALSE)
 install_version("memuse", version = "4.0-0", dependencies = FALSE)
+install_version("microbenchmark", version = "1.4-6", dependencies = FALSE)
 install_version("mmap", version = "0.6-17", dependencies = FALSE)
 install_version("mnormt", version = "1.5-5", dependencies = FALSE)
 install_version("modeltools", version = "0.2-22", dependencies = FALSE)
@@ -205,8 +208,10 @@ install_version("NLP", version = "0.2-0", dependencies = FALSE)
 install_version("nor1mix", version = "1.3-0", dependencies = FALSE)
 install_version("nplplot", version = "4.5", dependencies = FALSE)
 install_version("numDeriv", version = "2016.8-1.1", dependencies = FALSE)
+install_version("outliers", version = "0.14", dependencies = FALSE)
 install_version("pbapply", version = "1.4-0", dependencies = FALSE)
 install_version("pbivnorm", version = "0.6.0", dependencies = FALSE)
+install_version("pbmcapply", version = "1.4.1", dependencies = FALSE)
 install_version("pdc", version = "1.0.3", dependencise = FALSE)
 install_version("permute", version = "0.9-5", dependencies = FALSE)
 install_version("pixmap", version = "0.4-11", dependencies = FALSE)
@@ -215,6 +220,7 @@ install_version("plotrix", version = "3.7-6", dependencies = FALSE)
 install_version("pinfsc50", version = "1.1.0", dependencise = FALSE)
 install_version("pixmap", version = "0.4-11", dependencies = FALSE)
 install_version("png", version = "0.1-7", dependencies = FALSE)
+install_version("pls", version = "2.7-1", dependencies = FALSE)
 install_version("PoiClaClu", version = "1.0.2.1", dependencies = FALSE)
 install_version("polyclip", version = "1.10-0", dependencies = FALSE)
 install_version("pracma", version = "2.2.5", dependencies = FALSE)
@@ -226,6 +232,7 @@ install_version("proto", version = "1.0.0", dependencies = FALSE)
 install_version("proxy", version = "0.4-23", dependencies = FALSE)
 install_version("pspline", version = "1.0-18", dependencies = FALSE)
 install_version("pvclust", version = "2.0-0", dependencies = FALSE)
+install_version("qap", version = "0.1-1", dependencies = FALSE)
 install_version("qrng", version = "0.0-5", dependencies = FALSE)
 install_version("quadprog", version = "1.5-7", dependencies = FALSE)
 install_version("qvcalc", version = "1.0.0", dependencies = FALSE)
@@ -246,6 +253,7 @@ install_version("scatterplot3d", version = "0.3-41", dependencies = FALSE)
 install_version("segmented", version = "1.0-0", dependencies = FALSE)
 install_version("settings", version = "0.2.4", dependencies = FALSE)
 install_version("sfsmisc", version = "1.1-4", dependencies = FALSE)
+install_version("sgeostat", version = "1.0-27", dependencies = FALSE)
 install_version("shape", version = "1.4.4", dependencies = FALSE)
 install_version("slam", version = "0.1-45", dependencies = FALSE)
 install_version("snow", version = "0.4-3", dependencies = FALSE)
@@ -257,6 +265,7 @@ install_version("SparseM", version = "1.77", dependencies = FALSE)
 # install_version("spatial", version = "7.3-11", dependencies = FALSE)
 install_version("splus2R", version = "1.2-2", dependencies = FALSE)
 install_version("SQUAREM", version = "2017.10-1", dependencies = FALSE)
+install_version("sROC", version = "0.1-2", dependencies = FALSE)
 install_version("stabledist", version = "0.7-1", dependencies = FALSE)
 install_version("statmod", version = "1.4.32", dependencies = FALSE)
 install_version("subplex", version = "1.5-4", dependencies = FALSE)
@@ -266,6 +275,7 @@ install_version("TeachingDemos", version = "2.10", dependencies = FALSE)
 install_version("tensor", version = "1.5", dependencies = FALSE)
 install_version("tensorA", version = "0.36.1", dependencies = FALSE)
 install_version("timeDate", version = "3043.102", dependencies = FALSE)
+install_version("truncnorm", version = "1.0-8", dependencies = FALSE)
 install_version("tsne", version = "0.1-3", dependencies = FALSE)
 install_version("uroot", version = "2.0-10", dependencies = FALSE)
 # install_version("uuid", version = "0.1-2", dependencies = FALSE)
@@ -627,16 +637,19 @@ install_version("cowplot", version = "0.9.4", dependencies = FALSE) # ggplot2, g
 install_version("crosstalk", version = "1.0.0", dependencies = FALSE) # htmltools, jsonlite, lazyeval, R6, shiny, ggplot2
 install_version("cubature", version = "2.0.3", dependencies = FALSE) # Rcpp
 install_version("CVST", version = "0.2-2", dependencies = FALSE) # kernlab, Matrix
+install_version("cvTools", version = "0.3.2", dependencies = FALSE) # lattice, robustbase
 
 # D
 
 install_version("ddalpha", version = "1.3.9", dependencies = FALSE) # MASS, class, robustbase, sfsmisc, geometry
+install_version("dendextend", version = "1.12.0", dependencies = FALSE) # utils, stats, datasets, magrittr (≥ 1.0.1), ggplot2, viridis
 install_version("DetSel", version = "1.0.3", dependencies = FALSE) # ash
 install_version("downloader", version = "0.4", dependencies = FALSE) # digest, used for DiagrammeR
 install_version("DiagrammeR", version = "1.0.1", dependencies = FALSE)
 # Imports: 	dplyr (≥ 0.7.4), downloader (≥ 0.4), glue (≥ 1.2.0), htmltools (≥ 0.3.6), htmlwidgets (≥ 1.0), igraph (≥ 1.1.2), 
 # influenceR (≥ 0.1.0), magrittr (≥ 1.5), purrr (≥ 0.2.4), RColorBrewer (≥ 1.1-2), readr (≥ 1.1.1), rlang (≥ 0.2.0), rstudioapi (≥ 0.7), 
 # rgexf (≥ 0.15.3), scales (≥ 0.5.0), stringr (≥ 1.3.0), tibble (≥ 1.4.2), tidyr (≥ 0.8.0), viridis (≥ 0.5.0), visNetwork (≥ 2.0.3)
+install_version("doFuture", version = "0.8.0", dependencies = FALSE) #  globals (≥ 0.12.4), future (≥ 1.12.0), foreach (≥ 1.4.4), iterators (≥ 1.0.9), parallel, utils
 install_version("DRR", version = "0.0.3", dependencies = FALSE) # kernlab, CVST, Matrix, needed for dimRed
 install_version("dimRed", version = "0.2.3", dependencies = FALSE) # DRR, magrittr
 install_version("diveRsity", version = "1.9.90", dependencies = FALSE) # ggplot2, shiny, ggraph, Rcpp
@@ -716,28 +729,51 @@ install_version("leaflet.extras", version = "1.0.0", dependencies = FALSE) # nee
 
 # M
 
-install_version("mapproj", version = "1.2.6", dependencies = FALSE) # needs maps
+install_version("mapproj", version = "1.2.6", dependencies = FALSE) # maps
 # maxent not included in installation. Removed from CRAN due to repeated non-response to requests to fix check issues. 
 install_version("MCMCglmm", version = "2.29", dependencies = FALSE)
 # Depends: 	Matrix, coda, ape
 # Imports: 	corpcor, tensorA, cubature, methods
-install_version("mda", version = "0.4-10", dependencies = FALSE) # needs class
-install_version("metap", version = "1.1", dependencies = FALSE) # needs lattice, Rdpack
-install_version("mi", version = "1.0", dependencies = FALSE) # needs arm, Matrix
+install_version("mda", version = "0.4-10", dependencies = FALSE) # class
+install_version("metap", version = "1.1", dependencies = FALSE) # lattice, Rdpack
+install_version("mi", version = "1.0", dependencies = FALSE) # arm, Matrix
 
 # NOTE: genefilter (needed for modeest) is a Bioconductor package ... see elsewhere for other Bioconductor package installations.
 BiocManager::install("genefilter")
 # running this also installs other Bioconductor packages: ‘BiocGenerics’, ‘IRanges’, ‘S4Vectors’, ‘AnnotationDbi’, ‘annotate’, ‘Biobase’
 
-install_version("modeest", version = "2.3.3", dependencies = FALSE) # needs bazar, fBasics, genefilter, stable, stabledist, stats, statip
-install_version("msm", version = "1.6.7", dependencies = FALSE) # needs survival, mvtnorm, expm
+install_version("modeest", version = "2.3.3", dependencies = FALSE) # bazar, fBasics, genefilter, stable, stabledist, stats, statip
+install_version("msm", version = "1.6.7", dependencies = FALSE) # survival, mvtnorm, expm
+
+# mvoutlier - needs robCompositions, installing here (+ missing deps)
+install_version("pcaPP", version = "1.9-73", dependencies = FALSE) # mvtnorm
+install_version("rrcov", version = "1.4-7", dependencies = FALSE) 
+# Depends: 	R (≥ 2.10), robustbase (≥ 0.92.1), methods
+# Imports: 	stats, stats4, mvtnorm, lattice, cluster, pcaPP
+install_version("prabclus", version = "2.3-1", dependencies = FALSE) #  spdep, spatialreg, bootstrap, maptools, foreign, mvtnorm
+install_version("fpc", version = "2.2-3", dependencies = FALSE)
+# MASS, cluster, mclust, flexmix, prabclus, class, diptest, robustbase, kernlab, grDevices, graphics, methods, stats, utils, parallel
+install_version("vcd", version = "1.4-4", dependencies = FALSE) # stats, utils, MASS, grDevices, colorspace, lmtest
+install_version("laeken", version = "0.5.0", dependencies = FALSE) # boot, MASS
+install_version("ranger", version = "0.11.2", dependencies = FALSE) # Rcpp, Matrix
+install_version("VIM", version = "4.8.0", dependencies = FALSE)
+# Depends: 	R (≥ 3.1.0), colorspace, grid, data.table (≥ 1.9.4)
+# Imports: 	car, grDevices, robustbase, stats, sp, vcd, MASS, nnet, e1071, methods, Rcpp, utils, graphics, laeken, ranger
+install_version("NADA", version = "1.6-1", dependencies = FALSE) # survival
+install_version("zCompositions", version = "1.3.2-1", dependencies = FALSE) # MASS, NADA, truncnorm
+install_version("robCompositions", version = "2.1.0", dependencies = FALSE)
+# Depends: 	R (≥ 3.0.0), robustbase, ggplot2, data.table, e1071, pls
+# Imports: 	car, cvTools, rrcov, cluster, fpc, GGally, kernlab, MASS, mclust, Rcpp, sROC, tidyr, VIM, zCompositions
+install_version("mvoutlier", version = "2.0.9", dependencies = FALSE)
+# Depends: 	sgeostat, R (≥ 2.14)
+# Imports: 	robCompositions, robustbase
 
 # N
 
-install_version("ndjson", version = "0.7.0", dependencies = FALSE) # needs Rcpp, data.table, dplyr, dtplyr
-install_version("network", version = "1.15", dependencies = FALSE) # needs tibble, magrittr
-install_version("networkD3", version = "0.4", dependencies = FALSE) # needs htmlwidgets, igraph, magrittr
-install_version("neuralnet", version = "1.44.2", dependencies = FALSE) # needs Deriv, MASS 
+install_version("ndjson", version = "0.7.0", dependencies = FALSE) # Rcpp, data.table, dplyr, dtplyr
+install_version("network", version = "1.15", dependencies = FALSE) # tibble, magrittr
+install_version("networkD3", version = "0.4", dependencies = FALSE) # htmlwidgets, igraph, magrittr
+install_version("neuralnet", version = "1.44.2", dependencies = FALSE) # Deriv, MASS 
 install_version("NMF", version = "0.21.0", dependencies = FALSE)
 # Depends: 	R (≥ 3.0.0), methods, utils, pkgmaker (≥ 0.20), registry, rngtools (≥ 1.2.3), cluster
 # Imports: 	graphics, stats, stringr (≥ 1.0.0), digest, grid, grDevices, gridBase, colorspace, RColorBrewer, foreach, doParallel, ggplot2, reshape2
@@ -748,14 +784,13 @@ install_version("np", version = "0.60-9", dependencies = FALSE)
 install_version("openair", version = "2.6-5", dependencies = FALSE)
 # Imports: 	grid, rlang, dplyr, purrr, tidyr, mgcv, lattice, latticeExtra, lubridate, cluster, RColorBrewer, 
 # mapproj, hexbin, Rcpp, grDevices, graphics, methods, stats, MASS, util
-install_version("optparse", version = "1.6.2", dependencies = FALSE) # needs getopt
+install_version("optparse", version = "1.6.2", dependencies = FALSE) # getopt
 
 # P
 
 install_version("party", version = "1.3-3", dependencies = FALSE) 
 # Depends: 	R (≥ 3.0.0), methods, grid, stats, mvtnorm (≥ 1.0-2), modeltools (≥ 0.2-21), strucchange
 # Imports: 	survival (≥ 2.37-7), coin (≥ 1.1-0), zoo, sandwich (≥ 1.1-1)
-install_version("pcaPP", version = "1.9-73", dependencies = FALSE) # needs mvtnorm
 install_version("phangorn", version = "2.5.5", dependencies = FALSE)
 # Depends: 	R (≥ 3.2.0), ape (≥ 5.0)
 # Imports: 	quadprog, igraph (≥ 1.0), Matrix, parallel, methods, utils, stats, graphics, grDevices, fastmatch, magrittr, Rcpp (≥ 0.12.0)
@@ -797,6 +832,10 @@ install_version("sctransform", version = "0.2.0", dependencies = FALSE) # MASS, 
 install_version("SDMTools", version = "1.1-221.1", dependencies = FALSE) # R.utils (NOTE: ORPHANED)
 install_version("seas", version = "0.5-2", dependencies = FALSE) # MASS
 install_version("sem", version = "3.1-9", dependencies = FALSE) # matrixcalc, MASS, bott, mi
+# seriation and missing deps
+install_version("TSP", version = "1.1-7", dependencies = FALSE) # foreach
+install_version("gclus", version = "1.3.2", dependencies = FALSE) # cluster
+install_version("seriation", version = "1.2-7", dependencies = FALSE) # # TSP, qap, grid, cluster, gclus, dendextend, colorspace, MASS, gplots, registry, methods, stats, grDevices
 install_version("Seurat", version = "3.0.2", dependencies = FALSE)
 # Depends: 	R (≥ 3.4.0), methods
 # Imports: 	ape, cluster, cowplot, fitdistrplus, future, future.apply, ggplot2 (≥ 3.0.0), 
@@ -1034,6 +1073,7 @@ BiocManager::install("chipseq") # also installs Biocondcutor package ShortRead
 BiocManager::install("cummeRbund") # also installs Bioconductor package Gviz
 BiocManager::install("DESeq") # also installs Bioconductor package geneplotter
 BiocManager::install("DESeq2")
+BiocManager::install("destiny") # also installs CRAN packages ggthemes, smoother
 BiocManager::install("DEXSeq")
 BiocManager::install("FDb.InfiniumMethylation.hg19")
 # also installs Bioconductor packages ‘TxDb.Hsapiens.UCSC.hg19.knownGene’, ‘org.Hs.eg.db’
@@ -1047,16 +1087,26 @@ BiocManager::install("gdsfmt")
 BiocManager::install("geneLenDataBase")
 BiocManager::install("ggbio") # also installs Bioconductor package OrganismDbi
 BiocManager::install("goseq")
+BiocManager::install("GSEABase")
+BiocManager::install("GSVA") # also installs shinythemes
+BiocManager::install("HSMMSingleCell")
 BiocManager::install("IRanges")
 BiocManager::install("KEGGgraph")
+BiocManager::install("MAST")
 BiocManager::install("mixOmics")
+BiocManager::install("monocle") # also installs sparsesvd, docopt, VGAM, DDRTree, fastICA, densityClust, qlcMatrix, biocViews
 BiocManager::install("MutationalPatterns")
+BiocManager::install("netbiov")
 BiocManager::install("pathview")
 BiocManager::install("PFAM.db")
 BiocManager::install("ReportingTools")
 BiocManager::install("ROC")
 BiocManager::install("SAGx")
+BiocManager::install("SC3") # also installs CRAN package WriteXLS
+BiocManager::install("SCnorm") # also installs CRAN package moments
 BiocManager::install("seqLogo")
+BiocManager::install("SingleCellExperiment")
+BiocManager::install("singscore") # also installs ggsci
 BiocManager::install("SIFT.Hsapiens.dbSNP132")
 BiocManager::install("simpleaffy")
 BiocManager::install("sleuth")
@@ -1087,6 +1137,10 @@ BiocManager::install("sva")
 # BiocManager::install("scater") # SingleCellExperiment, beachmat
 # BiocManager::install("scran")
 # BiocManager::install("wateRmelon")
+
+# packages that need Cairo
+
+# BiocManager::install("scde")  # also installs CRAN packages Lmoments, distillery, Cairo, RMTstat, extRemes, pcaMethods
 
 # misc notes ####
 
