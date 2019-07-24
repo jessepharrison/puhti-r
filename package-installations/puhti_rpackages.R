@@ -819,6 +819,7 @@ install_version("plotly", version = "4.9.0", dependencies = FALSE, lib = libpath
 install_version("plotmo", version = "3.5.5", dependencies = FALSE, lib = libpath) # Formula, plotrix, TeachingDemos
 install_version("pls", version = "2.7-1", dependencies = FALSE, lib = libpath) # MASS, Rmpi, testthat, RUnit
 install_version("polysat", version = "1.7-4", dependencies = FALSE, lib = libpath) # Rcpp
+install_version("PopGenome", version = "2.7.1", dependencies = FALSE, lib = libpath) # ff
 
 # R
 
@@ -962,6 +963,11 @@ install_version("VineCopula", version = "2.1.8", dependencies = FALSE, lib = lib
 # install.packages('rgdal', type = "source", configure.args=c('--with-proj-include=/usr/local/include','--with-proj-lib=/usr/local/lib'), lib = libpath)
 
 # install_version("spatial.tools", version = "1.6.0", dependencies = FALSE, lib = libpath) # compiler, doParallel, foreach, iterators, mmap, raster, rgdal, sp, abind
+
+# install_version("dartR", version = "1.1.11", dependencies = FALSE, lib = libpath)
+# Depends: 	R (≥ 3.1.1), adegenet (≥ 2.0.0)
+# Imports: 	plyr, tidyr, reshape2, MASS, ggplot2, directlabels, pca3d, utils, seqinr, pegas, SNPassoc, methods, doParallel, stats, data.table, parallel, 
+# foreach, stringr, ape, vegan, SNPRelate, StAMPP, dismo, qvalue, sp, rgdal, igraph, rrBLUP, leaflet, mmod, PopGenReport, gdistance, hierfstat
 
 # CRAN: Packages that need Java ####
 
