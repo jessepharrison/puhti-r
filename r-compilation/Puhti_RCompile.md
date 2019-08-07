@@ -221,4 +221,6 @@ CFLAGS="-I/appl/soft/math/R/R_dependencies/R_compile_dependencies/R_compile_depe
 
 **Notes:** Earlier installation guidelines did not include `-lcurl` as part of the `LDFLAGS` call. Adding this resolved an issue where `./config` was unable to find https support for libcurl.
 
-#### 10. More to come...
+#### More to come... probably also modifications to the above to enable extra features.
+
+
