@@ -59,7 +59,7 @@ It could be another version, but using R 3.6.0 as an example here.
 
 #### 5. Pull together libraries needed to compile R
 
-This is where things get interesting. On Puhti, many of the external dependencies for R (and other software) have been installed using Spack. One way to make use of this for compiling R is to create a separate folder for dependencies using `spack view`. Essentially what this does is to create a collection of symlinks that can then be used to build R.
+This is where things get interesting. On Puhti, many of the external dependencies for R (and other software) have been installed using Spack. One way to make use of this for compiling R is to create a separate folder for dependencies using `spack view`. What this does is to create a collection of symlinks that can then be used to build R.
 
 In addition a means of compiling C and Fortran 90, we need at least the following libraries: **bzip2, curl, PCRE, readline, xz and zlib**. We also need other libraries (libiconv, libX11 and libXt), but those come as part of the default system set-up on Puhti and we don't need to point towards those explicitly.
 
