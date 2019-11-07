@@ -1,0 +1,167 @@
+# SETTING UP R 3.6.1 SPACK VIEW + R PACKAGE INSTALLATIONS
+# JESSE HARRISON (NOVEMBER 2019)
+
+ssh user@puhti-login3.csc.fi
+newgrp p_installation
+umask 0002
+source /appl/opt/utils/spack-settings.sh
+
+# PURGE MODULES AND LOAD GCC 9.1.0 (same GCC used to compile R)
+
+ml purge
+ml gcc/9.1.0
+
+# CREATE FOLDERS
+
+mkdir /appl/soft/math/R/R-3.6.1/R-3.6.1-spackview/ 	# for spack view
+mkdir /appl/soft/math/R/R-3.6.1/R-3.6.1-rpackages/ 	# for R packages
+mkdir /appl/soft/math/R/R-3.6.1/R-3.6.1-bash/ 		# for package installation scripts
+mkdir /appl/soft/math/R/R-3.6.1/R-3.6.1-compile/ 	# for tar.gz files (modified R packages)
+mkdir /appl/soft/math/R/R-3.6.1/R-3.6.1-instructions/	# where this file goes
+
+# CREATE SPACK VIEW
+# (ALSO SEE NOTES AT END OF DOCUMENT)
+
+cd /appl/soft/math/R/R-3.6.1/
+
+spack view symlink R-3.6.1-spackview /oxcmnex -i 	# r@3.6.1
+spack view symlink R-3.6.1-spackview /e7ssinm 		# gsl@2.5
+spack view symlink R-3.6.1-spackview /4wyzfbb -i 	# udunits2@2.2.24
+spack view symlink R-3.6.1-spackview /24xayht -i  	# netcdf@4.7.0 (without MPI)
+spack view symlink R-3.6.1-spackview /6stog6b 		# libtiff@4.0.9
+spack view symlink R-3.6.1-spackview /rvt2bf 		# image-magick@7.0.5-9
+spack view symlink R-3.6.1-spackview /6tvbgrn 		# jags@4.3.0
+spack view symlink R-3.6.1-spackview /hs5tq6b -i 	# mariadb@10.2.8
+spack view symlink R-3.6.1-spackview /x7t42rg 		# poppler@0.65.0 (+ iconv)
+spack view symlink R-3.6.1-spackview /px7373r -i	# mpfr@4.0.1
+spack view symlink R-3.6.1-spackview /vzm3fwv -i 	# grass@7.8.0
+spack view symlink R-3.6.1-spackview /yk5656z 		# saga-gis@7.3.0
+
+# NAVIGATE TO R DIRECTORY
+
+cd /appl/soft/math/R/R-3.6.1/R-3.6.1-spackview/bin
+
+# EXPORT PATHS AND LIBRARIES
+
+export LD_LIBRARY_PATH=/appl/soft/math/R/R-3.6.1/R-3.6.1-spackview/lib:/appl/spack/install-tree/gcc-9.1.0/hpcx-mpi-2.4.0-dnpuei/lib:/appl/spack/install-tree/gcc-9.1.0/bzip2-1.0.6-qxjiuc/lib:/appl/spack/install-tree/gcc-9.1.0/cairo-1.16.0-ftr2be/lib:/appl/spack/install-tree/gcc-9.1.0/poppler-0.65.0-x7t42r/lib64:/appl/spack/install-tree/gcc-9.1.0/gdal-2.4.2-j7nayj/lib:/appl/spack/install-tree/gcc-9.1.0/proj-5.2.0-rvoplb/lib:/appl/opt/cluster_studio_xe2019/compilers_and_libraries_2019.4.243/linux/mkl/lib/intel64:/appl/spack/install-tree/gcc-9.1.0/fftw-3.3.8-kixz3n/lib
+
+export PATH=$PATH:/appl/soft/math/R/R-3.6.1/R-3.6.1-spackview/bin:/appl/spack/install-tree/gcc-9.1.0/mariadb-10.2.8-hs5tq6/bin:/appl/spack/install-tree/gcc-9.1.0/bzip2-1.0.6-qxjiuc/bin:/appl/spack/install-tree/gcc-9.1.0/cairo-1.16.0-ftr2be/bin:/appl/spack/install-tree/gcc-9.1.0/poppler-0.65.0-x7t42r/bin:/appl/spack/install-tree/gcc-9.1.0/gdal-2.4.2-j7nayj/bin:/appl/spack/install-tree/gcc-9.1.0/proj-5.2.0-rvoplb/bin:/appl/spack/install-tree/gcc-9.1.0/fftw-3.3.8-kixz3n/bin
+
+export PKG_CONFIG_PATH=/appl/spack/install-tree/gcc-9.1.0/poppler-0.65.0-x7t42r/lib64/pkgconfig:/appl/spack/install-tree/gcc-9.1.0/libx11-1.6.5-klzhtm/lib/pkgconfig:/appl/spack/install-tree/gcc-9.1.0/jags-4.3.0-6tvbgr/lib/pkgconfig:/appl/spack/install-tree/gcc-9.1.0/pixman-0.34.0-u2icur/lib/pkgconfig:/appl/spack/install-tree/gcc-9.1.0/cairo-1.16.0-ftr2be/lib/pkgconfig:/appl/spack/install-tree/gcc-9.1.0/image-magick-7.0.5-9-l3ywgd/lib/pkgconfig:/appl/spack/install-tree/gcc-4.8.5/curl-7.60.0-hozbun/lib/pkgconfig:/appl/spack/install-tree/gcc-9.1.0/gdal-2.4.2-j7nayj/lib/pkgconfig:/appl/spack/install-tree/gcc-9.1.0/proj-5.2.0-rvoplb/lib/pkgconfig:/appl/spack/install-tree/gcc-9.1.0/fftw-3.3.8-kixz3n/lib/pkgconfig
+
+export TK_LIBRARY="/appl/spack/install-tree/gcc-9.1.0/tk-8.6.8-qnfbzv/lib/tk8.6"
+
+export GDAL_DATA="/appl/spack/install-tree/gcc-9.1.0/gdal-2.4.2-j7nayj/share/gdal"
+
+# PACKAGE INSTALLATIONS
+
+# TAR FILES FOR MANUAL INSTALLS
+# Some packages are old on CRAN or don't install without manual edits to Makevars.in.
+# Download these into: /appl/soft/math/R/R-3.6.1/R-3.6.1-compile/R-3.6.1-tar
+# NOTE: libtiff was since RPM-installed (imager package proved painful to install)
+
+# rJava (newer version than on CRAN)
+wget http://rforge.net/rJava/snapshot/rJava_0.9-12.tar.gz
+
+# Rmpfr (doesn't know where to find GMP and MPFR libraries)
+# This package needs some manual edits to Makevars.in to work
+
+wget https://cran.r-project.org/src/contrib/Rmpfr_0.7-2.tar.gz
+
+# We don't need to compile things from source so we'll extract directly into build dir
+tar -xvf Rmpfr_0.7-2.tar.gz -C /appl/soft/math/R/R-3.6.1/R-3.6.1-compile/R-3.6.1-build
+cd /appl/soft/math/R/R-3.6.1/R-3.6.1-compile/R-3.6.1-build/Rmpfr/src
+
+Edit Makevars.in to include the following:
+
+PKG_CPPFLAGS=-I/appl/spack/install-tree/gcc-9.1.0/mpfr-4.0.1-px7373/include
+PKG_LIBS=-L/appl/spack/install-tree/gcc-9.1.0/mpfr-4.0.1-px7373/lib -L/appl/spack/install-tree/gcc-9.1.0/gmp-6.1.2-wiqe4d/lib -lmpfr -lgmp
+
+Then repackage it
+
+cd ..
+cd ..
+tar -czf Rmpfr_0.7-2_Puhti.tar.gz Rmpfr
+rm -rf Rmpfr
+
+# rtiff (also needs edits to Makevars.in)
+wget https://cran.r-project.org/src/contrib/rtiff_1.4.6.tar.gz
+
+# otherwise same as above but replace Makevars.in contents with these:
+PKG_CFLAGS=-I/appl/spack/install-tree/gcc-9.1.0/libtiff-4.0.9-6stog6/include
+PKG_LIBS=-L/appl/spack/install-tree/gcc-9.1.0/libtiff-4.0.9-6stog6/lib -ltiff
+
+# tiff (doesn't know where to find libtiff)
+
+wget https://cran.r-project.org/src/contrib/tiff_0.1-5.tar.gz
+tar -xvf tiff_0.1-5.tar.gz -C /appl/soft/math/R/R-3.6.1/R-3.6.1-compile/R-3.6.1-build
+cd /appl/soft/math/R/R-3.6.1/R-3.6.1-compile/R-3.6.1-build/tiff/src
+
+Edit Makevars
+
+Originally has this:
+PKG_LIBS=-ltiff -ljpeg
+# PKG_CFLAGS=
+
+Replace with:
+PKG_LIBS=-L/appl/spack/install-tree/gcc-9.1.0/libtiff-4.0.9-6stog6/lib -L/appl/spack/install-tree/gcc-9.1.0/libjpeg-turbo-1.5.90-44sflc/lib -ltiff -ljpeg
+PKG_CFLAGS=-I/appl/spack/install-tree/gcc-9.1.0/libtiff-4.0.9-6stog6/include -I/appl/spack/install-tree/gcc-9.1.0/libjpeg-turbo-1.5.90-44sflc/include
+
+cd ..
+cd ..
+tar -czf tiff_0.1-5_Puhti.tar.gz tiff
+rm -rf tiff
+
+# AUTOMATED PACKAGE INSTALLATION SCRIPTS
+# These split into seven parts + one "feeling lucky" script for everything
+
+# DEVTOOLS + DEPENDENCIES
+# ALSO SETS BIOCONDUCTOR VERSION
+./Rscript /appl/soft/math/R/R-3.6.1/R-3.6.1-scripts/R-3.6.1-devtools.R
+
+# SET 1 (CRAN packages, lower-level)
+./Rscript /appl/soft/math/R/R-3.6.1/R-3.6.1-scripts/R-3.6.1-set1.R
+
+# SET 2 (CRAN packages, up + downstream dependencies)
+./Rscript /appl/soft/math/R/R-3.6.1/R-3.6.1-scripts/R-3.6.1-set2.R
+
+# SET 3 (CRAN packages, top of the food chain)
+./Rscript /appl/soft/math/R/R-3.6.1/R-3.6.1-scripts/R-3.6.1-set3.R
+
+# SET 4 (CRAN packages, packages with complex external dependencies)
+# also installs rJava, rmpfr and rtiff from source files
+
+./Rscript /appl/soft/math/R/R-3.6.1/R-3.6.1-scripts/R-3.6.1-set4.R
+
+# SET 5 (CRAN packages, spatial packages + things that need GDAL)
+./Rscript /appl/soft/math/R/R-3.6.1/R-3.6.1-scripts/R-3.6.1-set5.R
+
+# SET 6 (Bioconductor packages)
+./Rscript /appl/soft/math/R/R-3.6.1/R-3.6.1-scripts/R-3.6.1-set6.R
+
+# SET 7 (Extras, user requests etc)
+./Rscript /appl/soft/math/R/R-3.6.1/R-3.6.1-scripts/R-3.6.1-set7.R
+
+# FEELING LUCKY (All package installs in one script)
+./Rscript /appl/soft/math/R/R-3.6.1/R-3.6.1-scripts/R-3.6.1-all.R
+
+##############################
+
+Notes:
+
+- Spack installations: R, GDAL and SAGA need to be installed using the same libraries 
+
+- Separate curl installation used in pkgconfig settings (/appl/spack/install-tree/gcc-4.8.5/curl-7.60.0-hozbun/lib/pkgconfig)
+
+- ICONV library needs to be installed as part of Poppler. By default it isn't.
+However, if ICONV is missing, this switches of C++ support in Poppler, which
+means that poppler-cpp.pc ends up missing from the pkgconfig path.
+
+- NetCDF without MPI support used (non-MPI GDAL used by spatial libraries / software).
+
+- Added GDAL + PROJ to LD_LIBRARY_PATH, PATH and PKGCONFIGPATH (may be non-essential for installations to function).
+
+- RPM installations: bzip2-devel, zlib-devel, libtiff-devel
+
+- Some R packages (rtiff, tiff) were installed prior to libtiff-devel being RPM-installed, and rely on custom Makevars
+
