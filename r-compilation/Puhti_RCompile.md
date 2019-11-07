@@ -1,6 +1,8 @@
-## Compiling R from source on Puhti
+## Compiling R on Puhti
 
-Instructions for installing R on CSC's Puhti supercomputer
+#### NOTE: deprecated (R + dependencies installed using Spack instead)
+
+Instructions for installing R from source on CSC's Puhti supercomputer
 
 #### 1. Log into Puhti login node 3
 
@@ -97,7 +99,7 @@ The first thing we need to do is to source Spack settings:
 source /appl/opt/utils/spack-settings.sh
 ```
 
-We can then find all available spack libraries using:
+We can then find all available Spack libraries using:
 
 ```
 spack find -l 
@@ -223,4 +225,8 @@ CFLAGS="-I/appl/soft/math/R/R_dependencies/R_compile_dependencies/R_compile_depe
 
 #### More to come... probably also modifications to the above to enable extra features.
 
-
+```
+--with-cairo
+--with-libpng  
+--with-libtiff 
+```

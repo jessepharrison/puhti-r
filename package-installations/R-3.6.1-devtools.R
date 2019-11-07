@@ -8,5 +8,5 @@ repo <- 'https://cloud.r-project.org/'
 
 install.packages("devtools", dependencies = TRUE, lib = libpath, repos = repo)
 
-# Set Bioconductor version to 3.9
+# Set Bioconductor version to 3.9 (add "ask = FALSE" to non-interactive script)
 BiocManager::install(version = "3.9", lib = libpath, ask = FALSE)
