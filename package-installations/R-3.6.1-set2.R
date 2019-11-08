@@ -110,7 +110,7 @@ install_version("rio", version = "0.5.16", dependencies = FALSE, lib = libpath, 
 
 # classInt
 install_version("e1071", version = "1.7-2", dependencies = FALSE, lib = libpath, repos = repo)
-install_version("classInt", version = "0.3-3", dependencies = FALSE, lib = libpath, repos = repo)
+install_version("classInt", version = "0.4-2", dependencies = FALSE, lib = libpath, repos = repo)
 
 # promises
 install_version("later", version = "0.8.0", dependencies = FALSE, lib = libpath, repos = repo)
