@@ -1003,6 +1003,14 @@ install_version("fasterize", version = "1.0.0", dependencies = FALSE, lib = libp
 # I
 # J
 # K
+
+# keras + dependencies
+
+install_version("config", version = "0.3", dependencies = FALSE, lib = libpath, repos = repo)
+install_version("tfruns", version = "1.4", dependencies = FALSE, lib = libpath, repos = repo)
+install_version("tensorflow", version = "2.0.0", dependencies = FALSE, lib = libpath, repos = repo)
+install_version("keras", version = "2.2.5.0", dependencies = FALSE, lib = libpath, repos = repo)
+
 # L
 # M
 # N
@@ -1033,7 +1041,7 @@ install_version("fasterize", version = "1.0.0", dependencies = FALSE, lib = libp
 
 # SAIGE
 
-# SAIGE is probably not good as a system-wide install (some package errors... not CRAN / Bioconductor)
+# SAIGE is not CRAN / Bioconductor
 # Also needs cget - currently stops at an error message
 
 # install_version("SPAtest", version = "3.0.0", dependencies = FALSE, lib = libpath, repos = repo)
