@@ -1,0 +1,88 @@
+-- Module file for R 3.6.1
+
+depends_on("gcc/9.1.0")
+
+local spacktree = '/appl/spack/install-tree/'
+local gccversion = 'gcc-9.1.0'
+
+local rinstall = '/r-3.6.1-oxcmne/bin'
+local rhome = 'r-3.6.1-oxcmne/rlib/R'
+local spackview = '/appl/soft/math/R/R-3.6.1/R-3.6.1-spackview/'
+local rpackages = '/appl/soft/math/R/R-3.6.1/R-3.6.1-rpackages'
+local spackrpackages = 'r-3.6.1-oxcmne/rlib/R/library'
+
+local mpi = 'hpcx-mpi-2.4.0-dnpuei'
+local bzip2 = 'bzip2-1.0.6-qxjiuc'
+local cairo = 'cairo-1.16.0-ftr2be'
+local poppler = 'poppler-0.65.0-x7t42r'
+local gdal = 'gdal-2.4.2-j7nayj'
+local proj = 'proj-5.2.0-rvoplb'
+local mkl = '/appl/opt/cluster_studio_xe2019/compilers_and_libraries_2019.4.243/linux/mkl'
+local fftw = 'fftw-3.3.8-kixz3n'
+
+local mariadb = 'mariadb-10.2.8-hs5tq6'
+local extracurl = '/appl/spack/install-tree/gcc-4.8.5/curl-7.60.0-hozbun'
+local imagemagick = 'image-magick-7.0.5-9-l3ywgd'
+local pixman = 'pixman-0.34.0-u2icur'
+local jags = 'jags-4.3.0-6tvbgr'
+local x11 = 'libx11-1.6.5-klzhtm'
+
+local tk = 'tk-8.6.8-qnfbzv'
+local gdal = 'gdal-2.4.2-j7nayj'
+
+help([[
+R 3.6.1 on Puhti
+The R user documentation is under development.
+Links will be added as soon as they become available.]])
+
+setenv('R_HOME', pathJoin(spacktree, gccversion, rhome))
+setenv('R_LIBS_USER', pathJoin(spacktree, gccversion, spackrpackages))
+setenv('R_LIBS_SITE', rpackages)
+
+prepend_path('LD_LIBRARY_PATH', pathJoin(spacktree, gccversion, fftw, '/lib'))
+prepend_path('LD_LIBRARY_PATH', pathJoin(mkl, '/lib/intel64'))
+prepend_path('LD_LIBRARY_PATH', pathJoin(spacktree, gccversion, proj, '/lib'))
+prepend_path('LD_LIBRARY_PATH', pathJoin(spacktree, gccversion, gdal, '/lib'))
+prepend_path('LD_LIBRARY_PATH', pathJoin(spacktree, gccversion, poppler, '/lib64'))
+prepend_path('LD_LIBRARY_PATH', pathJoin(spacktree, gccversion, cairo, '/lib'))
+prepend_path('LD_LIBRARY_PATH', pathJoin(spacktree, gccversion, bzip2, '/lib'))
+prepend_path('LD_LIBRARY_PATH', pathJoin(spacktree, gccversion, mpi, '/lib'))
+prepend_path('LD_LIBRARY_PATH', pathJoin(spackview, '/lib'))
+
+prepend_path('PATH', pathJoin(spacktree, gccversion, fftw, '/bin'))
+prepend_path('PATH', pathJoin(spacktree, gccversion, proj, '/bin'))
+prepend_path('PATH', pathJoin(spacktree, gccversion, gdal, '/bin'))
+prepend_path('PATH', pathJoin(spacktree, gccversion, poppler, '/bin'))
+prepend_path('PATH', pathJoin(spacktree, gccversion, cairo, '/bin'))
+prepend_path('PATH', pathJoin(spacktree, gccversion, bzip2, '/bin'))
+prepend_path('PATH', pathJoin(spacktree, gccversion, mariadb, '/bin'))
+prepend_path('PATH', pathJoin(spackview, '/bin'))
+
+prepend_path('PKG_CONFIG_PATH', pathJoin(spacktree, gccversion, fftw, '/lib/pkgconfig'))
+prepend_path('PKG_CONFIG_PATH', pathJoin(spacktree, gccversion, proj, '/lib/pkgconfig'))
+prepend_path('PKG_CONFIG_PATH', pathJoin(spacktree, gccversion, gdal, '/lib/pkgconfig'))
+prepend_path('PKG_CONFIG_PATH', pathJoin(extracurl, '/lib/pkgconfig'))
+prepend_path('PKG_CONFIG_PATH', pathJoin(spacktree, gccversion, imagemagick, '/lib/pkgconfig'))
+prepend_path('PKG_CONFIG_PATH', pathJoin(spacktree, gccversion, cairo, '/lib/pkgconfig'))
+prepend_path('PKG_CONFIG_PATH', pathJoin(spacktree, gccversion, pixman, '/lib/pkgconfig'))
+prepend_path('PKG_CONFIG_PATH', pathJoin(spacktree, gccversion, jags, '/lib/pkgconfig'))
+prepend_path('PKG_CONFIG_PATH', pathJoin(spacktree, gccversion, x11, '/lib/pkgconfig'))
+prepend_path('PKG_CONFIG_PATH', pathJoin(spacktree, gccversion, poppler, '/lib/pkgconfig'))
+
+prepend_path('TK_LIBRARY', pathJoin(spacktree, gccversion, tk, '/lib/tk8.6')) 
+prepend_path('GDAL_DATA', pathJoin(spacktree, gccversion, gdal, '/share/gdal'))
+
+if (mode() == "load") then
+   LmodMessage("-----------------------------------------------------------------------")
+   LmodMessage("R on Puhti")
+   LmodMessage("-----------------------------------------------------------------------")
+   LmodMessage("The r-env module on Puhti comes with 800+ pre-installed R packages,")
+   LmodMessage("including support for geospatial analyses.")
+   LmodMessage("     ")
+   LmodMessage("User documentation and tutorials are under development. Links will be")
+   LmodMessage("added here as soon as they become available.")
+   LmodMessage("     ")
+   LmodMessage("NOTE: for R package installations, please contact servicedesk@csc.fi.")
+   LmodMessage("Instructions for using project-specific package folders will follow.")
+   LmodMessage("-----------------------------------------------------------------------")
+end
