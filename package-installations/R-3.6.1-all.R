@@ -1001,6 +1001,10 @@ install_version("fasterize", version = "1.0.0", dependencies = FALSE, lib = libp
 # G
 # H
 # I
+
+# INLA - was installed outside this script (non-standard installation command)
+# install.packages("INLA", repos = c(getOption("repos"), INLA = "https://inla.r-inla-download.org/R/stable"), dep = TRUE)
+
 # J
 # K
 
@@ -1028,16 +1032,6 @@ install_version("keras", version = "2.2.5.0", dependencies = FALSE, lib = libpat
 # Z
 
 # Packages not currently installed
-
-# INLA
-
-# Not available for R 3.6.1 (neither stable or test version work)
-
-# Stable version:
-# install.packages("INLA", INLA = "https://inla.r-inla-download.org/R/stable", dependencies = FALSE, lib = libpath, repos = repo)
-
-# Test version:
-# install.packages("INLA", INLA = "https://inla.r-inla-download.org/R/testing", dependencies = FALSE, lib = libpath, repos = repo)
 
 # SAIGE
 
