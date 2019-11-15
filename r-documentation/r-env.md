@@ -91,7 +91,7 @@ To make use of a project-specific package library, follow these instructions:
 mkdir Project_RPackages
 
 # Add the following to your R code:
-.libPaths(c("/projappl//Project_RPackages", .libPaths()))
+.libPaths(c("/projappl/<project>/Project_RPackages", .libPaths()))
 libpath <- .libPaths()[1]
 
 # This command can be used to check that the folder is now visible:
