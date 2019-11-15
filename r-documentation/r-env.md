@@ -87,7 +87,7 @@ To make use of a project-specific package library, follow these instructions:
 
 ```r
 # Outside R (on the command line):
-# First navigate to /projappl/, then
+# First navigate to /projappl/<project>, then
 mkdir Project_RPackages
 
 # Add the following to your R code:
