@@ -94,14 +94,14 @@ To make use of a project-specific package library, follow these instructions. Fi
 ```r
 # On the command prompt:
 # First navigate to /projappl/<project>, then
-mkdir Project_RPackages
+mkdir project_rpackages
 ```
 
 Then you can add the folder to your library trees in R:
 
 ```r
 # Add this to your R code:
-.libPaths(c("/projappl/<project>/Project_RPackages", .libPaths()))
+.libPaths(c("/projappl/<project>/project_rpackages", .libPaths()))
 libpath <- .libPaths()[1]
 
 # This command can be used to check that the folder is now visible:
@@ -109,7 +109,7 @@ libpath <- .libPaths()[1]
 
 # Package installations should now be directed to the project
 # folder by default. You can also specify the path, e.g.:
-install.packages("Package", lib = libpath)
+install.packages("package", lib = libpath)
 ```
 
 ## Citation
