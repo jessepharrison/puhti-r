@@ -50,7 +50,7 @@ For information on available partitions, see [here](https://docs.csc.fi/#computi
 
 You can also run R scripts non-interactively using batch job files. This is particularly useful for jobs that require multiple cores or a lot of memory. See this [link](https://docs.csc.fi/#computing/running/creating-job-scripts/) for detailed information on how to prepare batch jobs. Information on submitting array jobs can be found [here](https://docs.csc.fi/#computing/running/array-jobs/).
 
-An example for submitting a single-processor R batch job on Puhti:
+Below is an example for submitting a single-processor R batch job on Puhti. Note that the `test` partition is used here (which has a time limit of 15 minutes and is used for testing purposes only).
 
 ```
 #!/bin/bash -l
@@ -89,14 +89,18 @@ Additional R package installations can be arranged via two separate routes:
 
 - Requests for general installations (provided to all users as part of the module): please contact [servicedesk@csc.fi](mailto:servicedesk@csc.fi)
 
-To make use of a project-specific package library, follow these instructions:
+To make use of a project-specific package library, follow these instructions. First create a new folder inside your project directory:
 
 ```r
-# Outside R (on the command line):
+# On the command prompt:
 # First navigate to /projappl/<project>, then
 mkdir Project_RPackages
+```
 
-# Add the following to your R code:
+Then you can add the folder to your library trees in R:
+
+```r
+# Add this to your R code:
 .libPaths(c("/projappl/<project>/Project_RPackages", .libPaths()))
 libpath <- .libPaths()[1]
 
