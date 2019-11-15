@@ -69,13 +69,18 @@ srun Rscript --no-save myrscript.R
 
 #### R package installations
 
-It is possible to check if a particular package is already installed as follows:
+It is possible to check if a particular package is already installed as follows.
 
 ```r
-# R code:
+# One way is to try loading the package:
+library(packagename)
+
+# If you don't want to load the package, it is also
+# possible to search through a list:
 installed_packages <- library()$results[,1]
 "packagename" %in% installed_packages
-# NOTE: This is sensitive to upper- and lower-case letters.
+
+# Note: both ways are sensitive to upper- and lower-case letters
 ```
 
 Additional R package installations can be arranged via two separate routes:
