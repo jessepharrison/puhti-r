@@ -1,6 +1,7 @@
 -- Module file for R 3.6.1
 
 depends_on("gcc/9.1.0")
+depends_on("hpcx-mpi/2.4.0")
 
 local spacktree = '/appl/spack/install-tree/'
 local gccversion = 'gcc-9.1.0'
@@ -73,22 +74,23 @@ prepend_path('TK_LIBRARY', pathJoin(spacktree, gccversion, tk, '/lib/tk8.6'))
 prepend_path('GDAL_DATA', pathJoin(spacktree, gccversion, gdal, '/share/gdal'))
 
 if (mode() == "load") then
-   LmodMessage("--------------------------------------------------------------------------------")
+   LmodMessage("-----------------------------------------------")
    LmodMessage("R on Puhti")
-   LmodMessage("--------------------------------------------------------------------------------")
-   LmodMessage("The r-env module on Puhti comes with 800+ pre-installed R packages,")
-   LmodMessage("including support for geospatial analyses.")
+   LmodMessage("-----------------------------------------------")
+   LmodMessage("The r-env module on Puhti comes with 800+")
+   LmodMessage("pre-installed R packages, including support")
+   LmodMessage("for geospatial analyses.")
    LmodMessage("     ")
-   LmodMessage("User documentation and tutorials are under development. Links will be")
-   LmodMessage("added here as soon as they become available.")
+   LmodMessage("User documentation and tutorials are under")
+   LmodMessage("development. Links will be added ASAP.")
    LmodMessage("     ")
-   LmodMessage("For R package installations, please contact servicedesk@csc.fi.")
-   LmodMessage("Instructions for using project-specific package folders will follow.")
-   LmodMessage("--------------------------------------------------------------------------------")
-   LmodMessage("To run R interactively on Puhti's computing nodes (modify as needed):")
-   LmodMessage("srun -n1 -t 00:05:00 --mem=4G --pty --account=projectid -p partition R --no-save")
+   LmodMessage("-----------------------------------------------")
+   LmodMessage("To run R interactively on computing nodes:")
+   LmodMessage("srun -n1 -t 00:05:00 --x11=first --mem=4G --pty")
+   LmodMessage("--account=project_id -p partition R --no-save")
+   LmodMessage("(Modify as needed)")
    LmodMessage("     ")
-   LmodMessage("NOTE: Because srun does not support X11 forwarding currently,")
-   LmodMessage("interactive plotting is disabled. Please save figures as separate files.")
-   LmodMessage("--------------------------------------------------------------------------------")
+   LmodMessage("NOTE: RStudio is currently unavailable on Puhti")
+   LmodMessage("(installation pending.)")
+   LmodMessage("-----------------------------------------------")
 end
