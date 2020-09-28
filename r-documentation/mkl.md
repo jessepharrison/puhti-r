@@ -1,6 +1,6 @@
 **Using threading to improve performance**
 
-The `r-env-singularity` module has been configured to use the Intel® Math Kernel Library (MKL), enabling the execution of data analysis tasks using multiple threads. For more information on threading, see [this website](https://software.intel.com/content/www/us/en/develop/documentation/mkl-linux-developer-guide/top/managing-performance-and-memory/improving-performance-with-threading.html). 
+The `r-env-singularity` module has been configured to use the Intel® Math Kernel Library (MKL), enabling the execution of data analysis tasks using multiple threads. For more information on threading, see [the Intel® website](https://software.intel.com/content/www/us/en/develop/documentation/mkl-linux-developer-guide/top/managing-performance-and-memory/improving-performance-with-threading.html). 
 
 By default, `r-env-singularity` utilizes a single thread. While users may set a desired number of threads for a particular job, the benefits of this in terms of computation times depend on the analysis in question. Because of this, we encourage experimenting with different thread numbers and benchmarking your code using a small example data set and, for example, the R package `microbenchmark` (installed as part of the module).
 
