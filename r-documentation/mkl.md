@@ -37,7 +37,7 @@ echo "OMP_DISPLAY_AFFINITY=true" > ~/.Renviron
 srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
-If running a multi-core interactive job, one could set the number of MKL threads to reflect the number of cores in use by adding the following to your R code:
+If running a multi-core interactive job, one could set the number of MKL threads to reflect the number of cores in use by adding the following to your R code. We also set other environment variables, similarly to what is done in the batch job script.
 
 ```
 var.name  <- "OMP_NUM_THREADS"
@@ -46,4 +46,8 @@ var.value <- as.numeric(future::availableCores())
 args = list(var.value)
 names(args) = var.name
 do.call(Sys.setenv, args)
+
+Sys.setenv(OMP_PLACES = "cores")
+Sys.setenv(OMP_AFFINITY_FORMAT = "Process %P level %L thread %0.3n affinity %A")
+Sys.setenv(OMP_DISPLAY_AFFINITY = "true")
 ```
