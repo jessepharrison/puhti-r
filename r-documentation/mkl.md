@@ -37,7 +37,7 @@ echo "OMP_DISPLAY_AFFINITY=true" > ~/.Renviron
 srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
 
-If running a multi-core interactive job, the number of threads can be matched with the number of cores reserved for the job by adding the following to your R code. We also set other environment variables, similar to what is done in the batch job script.
+If running a multi-core interactive job, the number of threads can be matched with the number of cores by adding the following to your R code. We also set other environment variables, similar to what is done in the batch job script.
 
 ```
 var.name  <- "OMP_NUM_THREADS"
