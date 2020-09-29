@@ -2,11 +2,14 @@
 
 The `r-env-singularity` module has been configured to use the Intel® Math Kernel Library (MKL), enabling the execution of data analysis tasks using multiple threads. For more information on threading, [see the Intel® website](https://software.intel.com/content/www/us/en/develop/documentation/mkl-linux-developer-guide/top/managing-performance-and-memory/improving-performance-with-threading.html). 
 
-By default, `r-env-singularity` utilizes a single thread. While users may set a desired number of threads for a job, the benefits of this in terms of computation times depend on the analysis in question. Because of this, we encourage experimenting with different thread numbers and benchmarking your code using a small example data set and, for example, the R package [`microbenchmark`](https://cran.r-project.org/web/packages/microbenchmark/index.html).
+By default, `r-env-singularity` is single-threaded. While users may set a desired number of threads for a job, the benefits of this in terms of computation times depend on the analysis. Because of this, we encourage experimenting with different thread numbers and benchmarking your code using a small example data set and, for example, the R package [`microbenchmark`](https://cran.r-project.org/web/packages/microbenchmark/index.html).
 
-The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. To further improve the performance of multi-threaded tasks, OpenMP threads can be bound to specific cores using `OMP_PLACES=cores`. When running batch jobs, it is also good practice to ensure correct thread affinity using the variables `OMP_AFFINITY_FORMAT` and `OMP_DISPLAY_AFFINITY` ([see this page for details](https://docs.csc.fi/computing/running/performance-checklist/#hybrid-parallelization-in-mahti)). 
+!!! note
+    Note that simply adding more resources does not necessarily guarantee faster computation!
 
-An example of a batch job script using multiple threads can be found below. Here we submit a job using eight cores (and therefore eight threads). Notice how we can match the number of threads and cores using `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`:
+The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. To improve the performance of multi-threaded tasks, OpenMP threads can be bound to specific cores using `OMP_PLACES=cores`. When running batch jobs, it is also good practice to ensure correct thread affinity by using the variables `OMP_AFFINITY_FORMAT` and `OMP_DISPLAY_AFFINITY` ([see this page for details](https://docs.csc.fi/computing/running/performance-checklist/#hybrid-parallelization-in-mahti)). 
+
+An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads). Notice how we match the number of threads and cores using `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`:
 
 ```
 #!/bin/bash -l
@@ -36,8 +39,7 @@ echo "OMP_DISPLAY_AFFINITY=true" > ~/.Renviron
 
 srun singularity_wrapper exec Rscript --no-save myscript.R
 ```
-
-If running a multi-core interactive job, the number of threads can be matched with the number of cores by adding the following to your R code. We also set other environment variables, similar to what is done in the batch job script.
+In a multi-core interactive job, the number of threads can be matched with the number of cores by adding the following to your R code. We also set other environment variables, similar to what is done in the batch job script.
 
 ```
 var.name  <- "OMP_NUM_THREADS"
