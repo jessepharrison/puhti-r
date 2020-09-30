@@ -27,7 +27,7 @@ An example batch job script employing multiple threads can be found below. Here 
 #SBATCH --mem-per-cpu=2000
 
 # load r-env-singularity
-module load r-env-singularity/3.6.3
+module load r-env-singularity/4.0.2
 
 # Clean up prior TMPDIR and OMP_NUM_THREADS from .Renviron
 if test -f ~/.Renviron; then
