@@ -26,7 +26,7 @@ An example batch job script can be found below. Here we submit a job using eight
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=2000
 
-# load r-env-singularity
+# Load r-env-singularity
 module load r-env-singularity/4.0.2
 
 # Clean up prior TMPDIR and OMP_NUM_THREADS from .Renviron
