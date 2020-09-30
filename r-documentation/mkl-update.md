@@ -38,7 +38,7 @@ fi
 # Specify a temp directory in .Renviron
 echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
 
-# Bind thread and core numbers
+# Match thread and core numbers
 echo "OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK" >> ~/.Renviron
 
 # Run the R script
